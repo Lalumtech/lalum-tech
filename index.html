@@ -15,23 +15,14 @@
 
   <title>LaLum Tech — Automação Residencial Premium</title>
 
-  <!-- Google Fonts: Syne + Outfit -->
+  <!-- Google Fonts: Syne + Outfit (non-render-blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" /></noscript>
 
-  <!-- CSS: main (base) first, then section modules -->
-  <link rel="stylesheet" href="src/css/main.css" />
-  <link rel="stylesheet" href="src/css/navbar.css" />
-  <link rel="stylesheet" href="src/css/hero.css" />
-  <link rel="stylesheet" href="src/css/services.css" />
-  <link rel="stylesheet" href="src/css/about.css" />
-  <link rel="stylesheet" href="src/css/stats.css" />
-  <link rel="stylesheet" href="src/css/testimonials.css" />
-  <link rel="stylesheet" href="src/css/faq.css" />
-  <link rel="stylesheet" href="src/css/instagram.css" />
-  <link rel="stylesheet" href="src/css/cta.css" />
-  <link rel="stylesheet" href="src/css/footer.css" />
+  <!-- CSS: single bundle -->
+  <link rel="stylesheet" href="src/css/bundle.css" />
 </head>
 <body>
 
@@ -41,7 +32,7 @@
   <header id="navbar">
     <nav class="nav-container container">
       <a href="#" class="nav-logo">
-        <img src="Marca LaLum Tech/!!!PARA ENVIAR/!MARCA/PNG/variacao1-4_2x-100-removebg-preview (2) (1).png" alt="LaLum Tech" class="logo-img">
+        <img src="src/assets/logo-navbar.webp" alt="LaLum Tech" class="logo-img" width="140" height="40">
       </a>
       <ul class="nav-links">
         <li><a href="#services">Serviços</a></li>
@@ -456,42 +447,42 @@
         <div class="instagram-grid reveal-group">
 
           <a href="https://www.instagram.com/lalumtech" class="instagram-post reveal" target="_blank" rel="noopener">
-            <img src="Marca LaLum Tech/Siga-nos/B7Z_9248-HDR.jpg" alt="Projeto LaLum Tech — automação residencial" loading="lazy">
+            <img src="src/assets/instagram/B7Z_9248-HDR.webp" alt="Projeto LaLum Tech — automação residencial" loading="lazy" width="400" height="400" decoding="async">
             <div class="instagram-overlay">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </div>
           </a>
 
           <a href="https://www.instagram.com/lalumtech" class="instagram-post reveal" target="_blank" rel="noopener">
-            <img src="Marca LaLum Tech/Siga-nos/B7Z_9290-HDR.jpg" alt="Iluminação inteligente — LaLum Tech" loading="lazy">
+            <img src="src/assets/instagram/B7Z_9290-HDR.webp" alt="Iluminação inteligente — LaLum Tech" loading="lazy" width="400" height="400" decoding="async">
             <div class="instagram-overlay">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </div>
           </a>
 
           <a href="https://www.instagram.com/lalumtech" class="instagram-post reveal" target="_blank" rel="noopener">
-            <img src="Marca LaLum Tech/Siga-nos/B7Z_9401-HDR.jpeg" alt="Tecnologia residencial premium — LaLum Tech" loading="lazy">
+            <img src="src/assets/instagram/B7Z_9401-HDR.webp" alt="Tecnologia residencial premium — LaLum Tech" loading="lazy" width="400" height="400" decoding="async">
             <div class="instagram-overlay">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </div>
           </a>
 
           <a href="https://www.instagram.com/lalumtech" class="instagram-post reveal" target="_blank" rel="noopener">
-            <img src="Marca LaLum Tech/Siga-nos/B7Z_9486-HDR.jpg" alt="Automação e elétrica residencial — LaLum Tech" loading="lazy">
+            <img src="src/assets/instagram/B7Z_9486-HDR.webp" alt="Automação e elétrica residencial — LaLum Tech" loading="lazy" width="400" height="400" decoding="async">
             <div class="instagram-overlay">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </div>
           </a>
 
           <a href="https://www.instagram.com/lalumtech" class="instagram-post reveal" target="_blank" rel="noopener">
-            <img src="Marca LaLum Tech/Siga-nos/B7Z_9524-HDR.jpg" alt="Integração de sistemas — LaLum Tech" loading="lazy">
+            <img src="src/assets/instagram/B7Z_9524-HDR.webp" alt="Integração de sistemas — LaLum Tech" loading="lazy" width="400" height="400" decoding="async">
             <div class="instagram-overlay">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </div>
           </a>
 
           <a href="https://www.instagram.com/lalumtech" class="instagram-post reveal" target="_blank" rel="noopener">
-            <img src="Marca LaLum Tech/Siga-nos/B7Z_9548-HDR.jpg" alt="Casa inteligente — LaLum Tech" loading="lazy">
+            <img src="src/assets/instagram/B7Z_9548-HDR.webp" alt="Casa inteligente — LaLum Tech" loading="lazy" width="400" height="400" decoding="async">
             <div class="instagram-overlay">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </div>
@@ -510,7 +501,7 @@
           <div class="cta-final-content">
             <span class="section-label">Vamos Conversar</span>
             <h2 class="cta-final-title">Pronto para transformar<br>a sua casa?</h2>
-            <img src="Marca LaLum Tech/!!!PARA ENVIAR/!MARCA/PNG/Design sem nome (2).png" alt="LaLum Tech Smart Home" class="cta-image cta-image--mobile">
+            <img src="src/assets/hero-image.webp" alt="LaLum Tech Smart Home" class="cta-image cta-image--mobile">
             <p class="cta-final-subtitle">Fale com um especialista LaLum Tech e receba um orçamento personalizado para o seu projeto.</p>
             <div class="cta-final-actions">
               <a href="https://wa.me/5554991662715" class="btn-primary btn-large" target="_blank" rel="noopener">
@@ -539,7 +530,7 @@
         <!-- Marca -->
         <div class="footer-brand">
           <a href="#" class="nav-logo footer-logo">
-            <img src="Marca LaLum Tech/!!!PARA ENVIAR/!MARCA/PNG/variacao1-4_2x-100-removebg-preview (2) (1).png" alt="LaLum Tech" class="logo-img">
+            <img src="src/assets/logo-navbar.webp" alt="LaLum Tech" class="logo-img" width="140" height="40">
           </a>
           <p class="footer-tagline">Tecnologia residencial premium.<br>Automação, elétrica e integração de sistemas.</p>
           <div class="footer-social">
