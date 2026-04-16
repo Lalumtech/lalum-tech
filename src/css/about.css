@@ -1,0 +1,215 @@
+/* =============================================================
+   about.css — LaLum Tech
+   Seção Sobre / Diferenciais: layout 2 colunas, checkmarks dourados
+   ============================================================= */
+
+/* ---------------------------------------------------------------
+   SECTION BACKGROUND
+--------------------------------------------------------------- */
+#about {
+  background: var(--color-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gradiente decorativo lateral */
+#about::after {
+  content: '';
+  position: absolute;
+  bottom: -150px;
+  right: -150px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(ellipse at center, rgba(107, 33, 214, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------------
+   ABOUT GRID — 2 colunas desktop
+--------------------------------------------------------------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4xl);
+  align-items: center;
+}
+
+/* ---------------------------------------------------------------
+   ABOUT CONTENT — coluna de texto
+--------------------------------------------------------------- */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* Label e título usam section-label / section-title de services.css */
+.about-content .section-label {
+  align-self: flex-start;
+}
+
+.about-content .section-title {
+  text-align: left;
+  font-size: var(--text-5xl);
+  margin-bottom: 0;
+}
+
+/* Parágrafos de texto */
+.about-text {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+.about-text strong {
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+/* ---------------------------------------------------------------
+   DIFERENCIAIS — lista com checkmarks dourados
+--------------------------------------------------------------- */
+.about-differentials {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-xs);
+  list-style: none;
+}
+
+.differential-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+  transition: color var(--transition-base);
+}
+
+.differential-item:last-child {
+  border-bottom: none;
+}
+
+.differential-item:hover {
+  color: var(--color-text-primary);
+}
+
+.differential-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: var(--color-gold-dim);
+  border: 1px solid rgba(107, 33, 214, 0.3);
+  border-radius: 50%;
+  color: var(--color-gold);
+  font-size: 0.7rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+  transition: background var(--transition-base),
+              box-shadow var(--transition-base);
+}
+
+.differential-item:hover .differential-check {
+  background: rgba(107, 33, 214, 0.22);
+  box-shadow: 0 0 8px rgba(107, 33, 214, 0.25);
+}
+
+/* ---------------------------------------------------------------
+   ABOUT IMAGE — coluna visual
+--------------------------------------------------------------- */
+.about-image {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+/* Moldura dourada sutil */
+.about-image::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(
+    135deg,
+    rgba(107, 33, 214, 0.4) 0%,
+    transparent 40%,
+    transparent 60%,
+    rgba(107, 33, 214, 0.2) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Overlay escuro sutil na imagem */
+.about-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 60%,
+    rgba(8, 8, 8, 0.5) 100%
+  );
+  border-radius: var(--radius-xl);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.about-image img {
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.about-image:hover img {
+  transform: scale(1.03);
+}
+
+/* ---------------------------------------------------------------
+   RESPONSIVO
+--------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .about-grid {
+    gap: var(--spacing-3xl);
+  }
+
+  .about-content .section-title {
+    font-size: var(--text-4xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+  }
+
+  /* Imagem vai para baixo do texto no mobile */
+  .about-image {
+    order: -1;
+  }
+
+  .about-image img {
+    height: 320px;
+  }
+
+  .about-content .section-title {
+    font-size: var(--text-3xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .about-image img {
+    height: 260px;
+  }
+}

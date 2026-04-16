@@ -1,0 +1,195 @@
+/* =============================================================
+   instagram.css — LaLum Tech
+   Seção de feed do Instagram: grid 6 posts, hover overlay
+   ============================================================= */
+
+/* ---------------------------------------------------------------
+   LABEL E TÍTULO DE SEÇÃO
+--------------------------------------------------------------- */
+.section-label {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--spacing-sm);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--color-text-primary);
+}
+
+/* ---------------------------------------------------------------
+   SEÇÃO INSTAGRAM
+--------------------------------------------------------------- */
+#instagram {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ---------------------------------------------------------------
+   CABEÇALHO
+--------------------------------------------------------------- */
+.instagram-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.instagram-header > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.instagram-header .section-title {
+  font-size: var(--text-4xl);
+  margin: 0;
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 60%, var(--color-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Botão com SVG */
+.instagram-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  flex-shrink: 0;
+}
+
+.instagram-btn svg {
+  flex-shrink: 0;
+  transition: transform var(--transition-base);
+}
+
+.instagram-btn:hover svg {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+/* ---------------------------------------------------------------
+   GRID DE POSTS
+--------------------------------------------------------------- */
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-sm);
+}
+
+/* ---------------------------------------------------------------
+   POST INDIVIDUAL
+--------------------------------------------------------------- */
+.instagram-post {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+}
+
+.instagram-post img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.instagram-post:hover img {
+  transform: scale(1.07);
+}
+
+/* ---------------------------------------------------------------
+   OVERLAY COM ÍCONE
+--------------------------------------------------------------- */
+.instagram-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 8, 8, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  border-radius: inherit;
+}
+
+.instagram-post:hover .instagram-overlay {
+  opacity: 1;
+}
+
+.instagram-overlay svg {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
+  transition: transform var(--transition-base);
+}
+
+.instagram-post:hover .instagram-overlay svg {
+  transform: scale(1.1);
+}
+
+/* Borda dourada no hover */
+.instagram-post::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--color-gold);
+  border-radius: var(--radius-md);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+}
+
+.instagram-post:hover::after {
+  opacity: 0.5;
+}
+
+.instagram-post:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* ---------------------------------------------------------------
+   RESPONSIVO
+--------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .instagram-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+  }
+
+  .instagram-header .section-title {
+    font-size: var(--text-3xl);
+  }
+
+  .instagram-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .instagram-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .instagram-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

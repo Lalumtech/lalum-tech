@@ -1,0 +1,593 @@
+/* =============================================================
+   main.css — LaLum Tech Design System
+   Base global: variáveis, reset, tipografia, utilitários, animações
+   ============================================================= */
+
+/* ---------------------------------------------------------------
+   1. VARIÁVEIS CSS — Design Tokens
+--------------------------------------------------------------- */
+:root {
+  /* ─── IDENTIDADE LALUM TECH — extraída dos ativos oficiais de marca ─── */
+
+  /* Roxo primário (fundo do cartão, avatar, logotipo) */
+  --color-primary:       #6B21D6;
+  --color-primary-light: #8B3FE8;   /* hover / gradiente do ícone */
+  --color-primary-dark:  #4D0FAD;   /* pressed / deep hover */
+  --color-primary-dim:   rgba(107, 33, 214, 0.15);
+  --color-primary-glow:  rgba(107, 33, 214, 0.35);
+
+  /* Off-white das peças light da marca (fundo do pill no logo) */
+  --color-bg-light:      #F0EDE8;
+
+  /* ─── Backgrounds ─── */
+  --color-bg:           #0A0A0A;   /* fundo principal da página */
+  --color-surface:      #100920;   /* superfície base (toque roxo escuro) */
+  --color-surface-2:    #160D2A;   /* cards, painéis */
+  --color-surface-3:    #1E1238;   /* hover states, bordas internas */
+  /* aliases semânticos */
+  --color-bg-card:      #160D2A;
+  --color-bg-section:   #100920;
+
+  /* ─── Bordas ─── */
+  --color-border:        rgba(107, 33, 214, 0.25);
+  --color-border-light:  rgba(107, 33, 214, 0.45);
+
+  /* ─── Aliases de compatibilidade (usados nos CSS das seções) ─── */
+  --color-gold:          #9D71F0;   /* acento roxo claro — texto, ícones */
+  --color-gold-light:    #B490F5;   /* roxo mais claro — hovers, badges */
+  --color-gold-dim:      rgba(107, 33, 214, 0.15);
+  --color-blue:          #7C3AED;
+  --color-blue-dim:      rgba(107, 33, 214, 0.12);
+
+  /* ─── Texto ─── */
+  --color-text:           #FFFFFF;
+  --color-text-primary:   #FFFFFF;
+  --color-text-secondary: #B0A8C8;   /* muted com toque roxo */
+  --color-text-muted:     #7A6E90;
+
+  /* ─── CTA ─── */
+  --color-cta:       #6B21D6;
+  --color-cta-hover: #8B3FE8;
+
+  /* ─── Acentos ─── */
+  --color-accent: #FFFFFF;
+
+  /* ─── Neutros ─── */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+
+  /* --- Tipografia --- */
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'Outfit', sans-serif;
+
+  /* --- Escala tipográfica --- */
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  1.875rem;
+  --text-4xl:  2.25rem;
+  --text-5xl:  3rem;
+  --text-6xl:  3.75rem;
+  --text-7xl:  4.5rem;
+  --text-8xl:  6rem;
+
+  /* --- Espaçamentos --- */
+  --spacing-xs:  0.5rem;
+  --spacing-sm:  1rem;
+  --spacing-md:  1.5rem;
+  --spacing-lg:  2rem;
+  --spacing-xl:  3rem;
+  --spacing-2xl: 4rem;
+  --spacing-3xl: 6rem;
+  --spacing-4xl: 8rem;
+
+  /* --- Container --- */
+  --container-max:     1280px;
+  --container-padding: clamp(1.5rem, 5vw, 5rem);
+  --section-padding:   clamp(5rem, 10vw, 10rem) 0;
+
+  /* --- Breakpoints (uso em JS / referência) --- */
+  --bp-sm:  640px;
+  --bp-md:  768px;
+  --bp-lg:  1024px;
+  --bp-xl:  1280px;
+  --bp-2xl: 1536px;
+
+  /* --- Raios --- */
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   20px;
+  --radius-xl:   32px;
+  --radius-full: 9999px;
+
+  /* --- Sombras --- */
+  --shadow-sm:      0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-md:      0 4px 16px rgba(0, 0, 0, 0.6);
+  --shadow-lg:      0 8px 32px rgba(0, 0, 0, 0.7);
+  --shadow-gold:    0 0 40px rgba(107, 33, 214, 0.25);
+  --shadow-primary: 0 0 40px rgba(107, 33, 214, 0.25);
+  --shadow-blue:    0 0 40px rgba(107, 33, 214, 0.2);
+
+  /* --- Glows --- */
+  --glow-gold:    0 0 20px rgba(107, 33, 214, 0.4), 0 0 60px rgba(107, 33, 214, 0.15);
+  --glow-primary: 0 0 20px rgba(107, 33, 214, 0.4), 0 0 60px rgba(107, 33, 214, 0.15);
+  --glow-blue:    0 0 20px rgba(107, 33, 214, 0.3), 0 0 60px rgba(107, 33, 214, 0.1);
+
+  /* --- Transições globais --- */
+  --transition-fast:   0.2s ease;
+  --transition-base:   0.3s ease;
+  --transition-slow:   0.5s ease;
+  --transition-spring: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------------------------------------------------------------
+   2. RESET & BASE
+--------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* --- Grain texture sutil (pseudo-elemento fixo) --- */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+/* ---------------------------------------------------------------
+   3. CONTAINER
+--------------------------------------------------------------- */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* ---------------------------------------------------------------
+   4. SECTION PADDING UTILITÁRIO
+--------------------------------------------------------------- */
+.section {
+  padding: var(--section-padding);
+}
+
+/* ---------------------------------------------------------------
+   5. TIPOGRAFIA
+--------------------------------------------------------------- */
+h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  font-size: var(--text-7xl);
+  color: var(--color-text-primary);
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  font-size: var(--text-5xl);
+  color: var(--color-text-primary);
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  font-size: var(--text-3xl);
+  color: var(--color-text-primary);
+}
+
+h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  font-size: var(--text-xl);
+  color: var(--color-text-primary);
+}
+
+p {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.7;
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+}
+
+/* Responsividade tipográfica */
+@media (max-width: 768px) {
+  h1 {
+    font-size: var(--text-5xl);
+  }
+
+  h2 {
+    font-size: var(--text-4xl);
+  }
+
+  h3 {
+    font-size: var(--text-2xl);
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: var(--text-4xl);
+  }
+
+  h2 {
+    font-size: var(--text-3xl);
+  }
+}
+
+/* ---------------------------------------------------------------
+   6. LABEL / BADGE
+--------------------------------------------------------------- */
+.label,
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  background: var(--color-primary-dim);
+  border: 1px solid rgba(107, 33, 214, 0.4);
+  padding: 0.375rem 0.875rem;
+  border-radius: var(--radius-full);
+}
+
+/* ---------------------------------------------------------------
+   7. BOTÕES
+--------------------------------------------------------------- */
+
+/* Botão Primário — CTA principal, roxo da marca */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  letter-spacing: 0.02em;
+  padding: 0.875rem 2rem;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition-base),
+              box-shadow var(--transition-base),
+              transform var(--transition-base);
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-light);
+  box-shadow: var(--glow-primary);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Botão Secundário — outline, texto claro */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--color-text-primary);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  letter-spacing: 0.02em;
+  padding: 0.875rem 2rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-light);
+  cursor: pointer;
+  transition: border-color var(--transition-base),
+              color var(--transition-base),
+              box-shadow var(--transition-base),
+              transform var(--transition-base);
+  white-space: nowrap;
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-primary-light);
+  color: var(--color-primary-light);
+  transform: translateY(-2px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* ---------------------------------------------------------------
+   8. WHATSAPP FLUTUANTE
+--------------------------------------------------------------- */
+#whatsapp-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9997;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base);
+}
+
+#whatsapp-float:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+}
+
+#whatsapp-float:active {
+  transform: scale(1.05);
+}
+
+/* ---------------------------------------------------------------
+   9. ANIMAÇÕES DE SCROLL REVEAL
+--------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays para filhos de .reveal-group */
+.reveal-group > *:nth-child(1) { transition-delay: 0s; }
+.reveal-group > *:nth-child(2) { transition-delay: 0.1s; }
+.reveal-group > *:nth-child(3) { transition-delay: 0.2s; }
+.reveal-group > *:nth-child(4) { transition-delay: 0.3s; }
+.reveal-group > *:nth-child(5) { transition-delay: 0.4s; }
+.reveal-group > *:nth-child(6) { transition-delay: 0.5s; }
+.reveal-group > *:nth-child(7) { transition-delay: 0.6s; }
+
+/* ---------------------------------------------------------------
+   10. KEYFRAMES DE ANIMAÇÃO
+--------------------------------------------------------------- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.6; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* ---------------------------------------------------------------
+   11. SCROLLBAR CUSTOMIZADA (Webkit)
+--------------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-dim);
+}
+
+/* ---------------------------------------------------------------
+   12. SELEÇÃO DE TEXTO
+--------------------------------------------------------------- */
+::selection {
+  background: rgba(107, 33, 214, 0.35);
+  color: #C084FC;
+}
+
+/* ---------------------------------------------------------------
+   13. UTILITÁRIOS GERAIS
+--------------------------------------------------------------- */
+
+/* Divisor decorativo com acento roxo */
+.divider-gold {
+  width: 3rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary), transparent);
+  border: none;
+  margin: var(--spacing-md) 0;
+}
+
+/* Texto com acento roxo */
+.text-gold {
+  color: var(--color-gold);
+}
+
+/* Texto com acento azul */
+.text-blue {
+  color: var(--color-blue);
+}
+
+/* Texto secundário */
+.text-muted {
+  color: var(--color-text-secondary);
+}
+
+/* Alinhamentos */
+.text-center { text-align: center; }
+.text-left   { text-align: left; }
+.text-right  { text-align: right; }
+
+/* Gradiente de texto roxo (identidade LaLum Tech) */
+.text-gradient-gold {
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, #C084FC 50%, var(--color-primary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+}
+
+/* Cartão base (herança para seções específicas) */
+.card-base {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  transition: border-color var(--transition-base),
+              box-shadow var(--transition-base),
+              transform var(--transition-base);
+}
+
+.card-base:hover {
+  border-color: rgba(107, 33, 214, 0.5);
+  box-shadow: var(--shadow-primary);
+  transform: translateY(-4px);
+}
+
+/* Linha separadora sutil */
+.separator {
+  width: 100%;
+  height: 1px;
+  background: var(--color-border);
+  border: none;
+}
+
+/* Visualmente oculto (acessibilidade) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

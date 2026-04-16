@@ -1,0 +1,221 @@
+/* =============================================================
+   navbar.css — LaLum Tech
+   Header fixo, navegação desktop e menu mobile
+   ============================================================= */
+
+/* ---------------------------------------------------------------
+   NAVBAR BASE
+--------------------------------------------------------------- */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: background var(--transition-slow),
+              backdrop-filter var(--transition-slow),
+              box-shadow var(--transition-slow),
+              padding var(--transition-slow);
+  padding: 1rem 0;
+}
+
+#navbar.scrolled {
+  background: rgba(10, 10, 10, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(107, 33, 214, 0.2);
+  padding: 1rem 0;
+}
+
+/* ---------------------------------------------------------------
+   NAV CONTAINER
+--------------------------------------------------------------- */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* ---------------------------------------------------------------
+   LOGO
+--------------------------------------------------------------- */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  transition: opacity var(--transition-fast);
+}
+
+.nav-logo:hover {
+  opacity: 0.85;
+}
+
+.logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .logo-img {
+    height: 28px;
+  }
+}
+
+/* ---------------------------------------------------------------
+   LINKS DESKTOP
+--------------------------------------------------------------- */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+  letter-spacing: 0.01em;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-gold);
+  transition: width var(--transition-base);
+}
+
+.nav-links a:hover {
+  color: var(--color-text-primary);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ---------------------------------------------------------------
+   CTA NAVBAR
+--------------------------------------------------------------- */
+.nav-cta {
+  font-size: var(--text-sm);
+  padding: 0.625rem 1.5rem;
+}
+
+/* ---------------------------------------------------------------
+   HAMBURGER BUTTON
+--------------------------------------------------------------- */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast);
+}
+
+.nav-hamburger:hover {
+  background: var(--color-surface-3);
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-text-primary);
+  border-radius: 2px;
+  transition: transform var(--transition-base),
+              opacity var(--transition-base);
+}
+
+/* Estado ativo — forma de X */
+.nav-hamburger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-8px);
+}
+
+.nav-hamburger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ---------------------------------------------------------------
+   MOBILE MENU
+--------------------------------------------------------------- */
+.nav-mobile-menu {
+  display: none;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem var(--container-padding);
+  background: rgba(8, 8, 8, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--color-border);
+  animation: fadeIn 0.2s ease;
+}
+
+.nav-mobile-menu.open {
+  display: flex;
+}
+
+.nav-mobile-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.nav-mobile-links li {
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 1.25rem;
+}
+
+.nav-mobile-links li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.nav-mobile-links a {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  display: block;
+  transition: color var(--transition-fast);
+}
+
+.nav-mobile-links a:hover {
+  color: var(--color-gold);
+}
+
+/* ---------------------------------------------------------------
+   RESPONSIVO
+--------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .nav-links {
+    gap: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links,
+  .nav-cta {
+    display: none;
+  }
+
+  .nav-hamburger {
+    display: flex;
+  }
+}

@@ -1,0 +1,4 @@
+node_modules/
+screenshots/progress/
+.DS_Store
+*.log

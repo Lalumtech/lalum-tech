@@ -1,0 +1,248 @@
+/* =============================================================
+   cta.css — LaLum Tech
+   Seção CTA Final: faixa de conversão com headline e botão WhatsApp
+   ============================================================= */
+
+/* ---------------------------------------------------------------
+   SEÇÃO CTA FINAL
+--------------------------------------------------------------- */
+.cta-final-section {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    var(--color-surface) 0%,
+    var(--color-bg) 40%,
+    #040404 100%
+  );
+  border-top: 1px solid var(--color-border);
+}
+
+/* Glow de fundo centralizado */
+.cta-final-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(107, 33, 214, 0.06) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Linha dourada decorativa no topo */
+.cta-final-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-gold),
+    transparent
+  );
+}
+
+/* ---------------------------------------------------------------
+   WRAPPER — layout dois colunas no desktop
+--------------------------------------------------------------- */
+.cta-final-wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+/* ---------------------------------------------------------------
+   CONTEÚDO (coluna esquerda no desktop)
+--------------------------------------------------------------- */
+.cta-final-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: var(--spacing-lg);
+  flex: 1;
+  max-width: 560px;
+}
+
+/* ---------------------------------------------------------------
+   IMAGEM CTA
+--------------------------------------------------------------- */
+.cta-image--desktop {
+  width: 420px;
+  max-width: 45%;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: var(--radius-lg);
+}
+
+.cta-image--mobile {
+  display: none;
+}
+
+.cta-final-content .section-label {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  background: var(--color-gold-dim);
+  border: 1px solid rgba(107, 33, 214, 0.25);
+  padding: 0.375rem 1rem;
+  border-radius: var(--radius-full);
+}
+
+/* ---------------------------------------------------------------
+   TÍTULO PRINCIPAL
+--------------------------------------------------------------- */
+.cta-final-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+/* ---------------------------------------------------------------
+   SUBTÍTULO
+--------------------------------------------------------------- */
+.cta-final-subtitle {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--text-lg);
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* ---------------------------------------------------------------
+   AÇÕES
+--------------------------------------------------------------- */
+.cta-final-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  width: 100%;
+}
+
+/* Botão maior que o padrão */
+.btn-large {
+  padding: 1.125rem 2.5rem;
+  font-size: var(--text-base);
+  box-shadow: 0 4px 24px rgba(107, 33, 214, 0.25);
+  transition: background var(--transition-base),
+              box-shadow var(--transition-base),
+              transform var(--transition-base);
+}
+
+.btn-large:hover {
+  background: var(--color-gold-light);
+  box-shadow: var(--glow-gold), 0 8px 32px rgba(107, 33, 214, 0.3);
+  transform: translateY(-3px);
+}
+
+.btn-large svg {
+  transition: transform var(--transition-base);
+}
+
+.btn-large:hover svg {
+  transform: scale(1.15);
+}
+
+/* ---------------------------------------------------------------
+   INFO DE CONTATO SECUNDÁRIA
+--------------------------------------------------------------- */
+.cta-contact-info {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.cta-phone {
+  color: var(--color-gold);
+  font-weight: 600;
+  font-family: var(--font-display);
+  transition: color var(--transition-fast);
+  text-decoration: none;
+}
+
+.cta-phone:hover {
+  color: var(--color-gold-light);
+}
+
+/* ---------------------------------------------------------------
+   RESPONSIVO
+--------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .cta-final-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+  }
+
+  .cta-final-content {
+    align-items: center;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .cta-image--desktop {
+    display: none;
+  }
+
+  .cta-image--mobile {
+    display: block;
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    border-radius: var(--radius-lg);
+  }
+
+  .cta-final-title {
+    font-size: clamp(2rem, 7vw, 3rem);
+  }
+
+  .cta-final-subtitle {
+    font-size: var(--text-base);
+  }
+
+  .btn-large {
+    padding: 1rem 2rem;
+    width: 100%;
+    max-width: 360px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-final-content {
+    gap: var(--spacing-md);
+  }
+
+  .cta-final-title {
+    font-size: var(--text-3xl);
+  }
+}

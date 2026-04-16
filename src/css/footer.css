@@ -1,0 +1,306 @@
+/* =============================================================
+   footer.css — LaLum Tech
+   Rodapé multi-coluna: marca, links, contato, copyright
+   ============================================================= */
+
+/* ---------------------------------------------------------------
+   FOOTER BASE
+--------------------------------------------------------------- */
+#footer {
+  background: #050505;
+  border-top: 1px solid rgba(107, 33, 214, 0.2);
+  padding: var(--spacing-3xl) 0 var(--spacing-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gradiente sutil de fundo */
+#footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 40% at 50% 0%,
+    rgba(107, 33, 214, 0.04) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------------
+   GRID DE COLUNAS
+--------------------------------------------------------------- */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.4fr;
+  gap: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------------------------------------------------------------
+   COLUNA MARCA
+--------------------------------------------------------------- */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.footer-logo {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: opacity var(--transition-fast);
+}
+
+.footer-logo .logo-img {
+  height: 32px;
+  width: auto;
+}
+
+.footer-logo:hover {
+  opacity: 0.85;
+}
+
+.footer-tagline {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  max-width: 260px;
+}
+
+/* ---------------------------------------------------------------
+   REDES SOCIAIS
+--------------------------------------------------------------- */
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-xs);
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: background var(--transition-base),
+              border-color var(--transition-base),
+              color var(--transition-base),
+              transform var(--transition-base),
+              box-shadow var(--transition-base);
+}
+
+.social-link:hover {
+  background: var(--color-gold-dim);
+  border-color: rgba(107, 33, 214, 0.4);
+  color: var(--color-gold);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 16px rgba(107, 33, 214, 0.2);
+}
+
+.social-link:active {
+  transform: translateY(-1px);
+}
+
+/* ---------------------------------------------------------------
+   COLUNAS GENÉRICAS
+--------------------------------------------------------------- */
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.footer-col-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin: 0;
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ---------------------------------------------------------------
+   LISTA DE LINKS
+--------------------------------------------------------------- */
+.footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.footer-links li a {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast),
+              padding-left var(--transition-fast);
+  display: inline-block;
+  position: relative;
+}
+
+.footer-links li a::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.footer-links li a:hover {
+  color: var(--color-gold);
+  padding-left: 14px;
+}
+
+.footer-links li a:hover::before {
+  opacity: 1;
+}
+
+/* ---------------------------------------------------------------
+   LISTA DE CONTATO
+--------------------------------------------------------------- */
+.footer-contact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.footer-contact li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.contact-label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.footer-contact li a,
+.footer-contact li span:not(.contact-label) {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  line-height: 1.6;
+  transition: color var(--transition-fast);
+}
+
+.footer-contact li a:hover {
+  color: var(--color-gold);
+}
+
+/* ---------------------------------------------------------------
+   RODAPÉ INFERIOR
+--------------------------------------------------------------- */
+.footer-bottom {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-copy,
+.footer-location {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}
+
+.footer-location {
+  color: rgba(85, 85, 80, 0.7);
+}
+
+/* ---------------------------------------------------------------
+   RESPONSIVO — Tablet/Desktop médio
+--------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  #footer {
+    padding: var(--spacing-2xl) 0 var(--spacing-lg);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+  }
+}
+
+/* ---------------------------------------------------------------
+   RESPONSIVO — Mobile
+--------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+
+  .footer-tagline {
+    max-width: 100%;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    align-items: center;
+  }
+}
